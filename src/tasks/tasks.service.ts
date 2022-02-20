@@ -41,7 +41,7 @@ export class TasksService {
 
   async deleteTaskById(id: string): Promise<void> {
     const found = await this.fetchTaskById(id);
-    console.log(found);
+
     if (!found) {
       throw new NotFoundException(`Task with ${id} not found`);
     }
