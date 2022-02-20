@@ -5,42 +5,42 @@ import { v4 as generateId } from 'uuid';
 
 @Injectable()
 export class TasksService {
-  private tasks: Task[] = [];
+  // private tasks: Task[] = [];
 
-  getAllTasks(): Task[] {
-    return this.tasks;
-  }
+  // getAllTasks(): Task[] {
+  //   return this.tasks;
+  // }
 
-  createTask(createTaskDto: CreateTaskDto): Task {
-    const { title, description } = createTaskDto;
+  // createTask(createTaskDto: CreateTaskDto): Task {
+  //   const { title, description } = createTaskDto;
 
-    const task: Task = {
-      id: generateId(),
-      title,
-      description,
-      status: TaskStatus.OPEN,
-    };
+  //   const task: Task = {
+  //     id: generateId(),
+  //     title,
+  //     description,
+  //     status: TaskStatus.OPEN,
+  //   };
 
-    this.tasks.push(task);
-    return task;
-  }
+  //   this.tasks.push(task);
+  //   return task;
+  // }
 
-  fetchTaskById(id: string): Task {
-    const found = this.tasks.find((task) => task.id === id);
-    if (!found) {
-      throw new NotFoundException();
-    }
-    return found;
-  }
+  // fetchTaskById(id: string): Task {
+  //   const found = this.tasks.find((task) => task.id === id);
+  //   if (!found) {
+  //     throw new NotFoundException();
+  //   }
+  //   return found;
+  // }
 
-  deleteTaskById(id: string): void {
-    this.fetchTaskById(id);
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-  }
+  // deleteTaskById(id: string): void {
+  //   this.fetchTaskById(id);
+  //   this.tasks = this.tasks.filter((task) => task.id !== id);
+  // }
 
-  updateTaskStatus(id: string, status: TaskStatus): Task {
-    const task = this.fetchTaskById(id);
-    task.status = status;
-    return task;
-  }
+  // updateTaskStatus(id: string, status: TaskStatus): Task {
+  //   const task = this.fetchTaskById(id);
+  //   task.status = status;
+  //   return task;
+  // }
 }
